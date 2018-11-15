@@ -21,7 +21,7 @@ class MoviesReviewClassifier:
     def __init__(self):
         self.POS_REVIEW_FILE_PATH = os.path.join('rt-polaritydata', 'rt-polarity.pos')
         self.NEG_REVIEW_FILE_PATH = os.path.join('rt-polaritydata', 'rt-polarity.neg')
-        self.POS_TAGS_TO_AUG = ['JJ']#, 'JJR', 'JJS']#, 'RB', 'RBR', 'RBS'] 
+        self.POS_TAGS_TO_AUG = ['JJ', 'JJS', 'RB', 'RBS']#['JJ', 'JJR', 'JJS', 'RB', 'RBR', 'RBS'] 
         self.pos_corpus = []
         self.neg_corpus = []
         self.test_corpus = []
@@ -47,7 +47,7 @@ class MoviesReviewClassifier:
     def split_data(self):
         print 'SPLITTING DATA\n'
         self.pos_corpus = self.pos_corpus + self.pos_aug_corpus
-        # self.neg_corpus = self.neg_corpus + self.neg_aug_corpus
+        self.neg_corpus = self.neg_corpus + self.neg_aug_corpus
 
         full_corpus = self.pos_corpus + self.neg_corpus
         y_all = ['pos']*len(self.pos_corpus) + ['neg']*len(self.neg_corpus)
@@ -55,9 +55,6 @@ class MoviesReviewClassifier:
         pos_train_vs_test_cutoff = int(math.floor(len(self.pos_corpus)*self.train_vs_test_cutoff))
         neg_train_vs_test_cutoff = int(math.floor(len(self.neg_corpus)*self.train_vs_test_cutoff))
         
-        # X_train_tmp = self.pos_corpus[:pos_sample_cutoff] + self.neg_corpus[:neg_sample_cutoff]
-        # y_train = ['pos']*len(self.pos_corpus[:pos_sample_cutoff]) + ['neg']*len(self.neg_corpus[:neg_sample_cutoff])
-
         X_train_pos, X_train_neg = self.pos_corpus[:pos_train_vs_test_cutoff], self.neg_corpus[:neg_train_vs_test_cutoff]
         y_train_pos, y_train_neg = ['pos']*len(self.pos_corpus[:pos_train_vs_test_cutoff]), ['neg']*len(self.neg_corpus[:neg_train_vs_test_cutoff])
 
@@ -104,7 +101,7 @@ class MoviesReviewClassifier:
         vectorizer = None
 
         split_train_vs_test_cutoffs = [0.7]
-        split_train_vs_valid_cutoffs = [0.85]
+        split_train_vs_valid_cutoffs = [0.95]
 
         X_train, X_valid, y_train, y_valid, X_test, y_test = [], [], [], [], [], []
         max_vals = {'maxval': [0.2]}

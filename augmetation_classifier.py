@@ -335,16 +335,16 @@ class MoviesReviewClassifier:
         self.run_trials_select_model() # max for NaiveBayes Model with tfidfVectorizer
 
         # phase 3: fine-tune the best settings for some additional params
-        self.fine_tune_params_on_selected_model_and_vectorizer()
+        # self.fine_tune_params_on_selected_model_and_vectorizer()
 
         # phase 4: choose the best fraction for samples split;   
-        self.tune_classfier_samples_size()
+        # self.tune_classfier_samples_size()
 
         # phase 5: run final train, with the optimal params and samples split ratios, as obtained in phase 3 & 4
-        self.run_final_setup()
+        # self.run_final_setup()
 
         # phase 6: check wrongly classified reviews
-        self.check_content_misclassif()
+        # self.check_content_misclassif()
 
 
 if __name__ == "__main__":

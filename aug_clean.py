@@ -23,7 +23,7 @@ class MoviesReviewClassifier:
     def __init__(self, use_word2vec):
         self.POS_REVIEW_FILE_PATH = os.path.join('rt-polaritydata', 'rt-polarity.pos')
         self.NEG_REVIEW_FILE_PATH = os.path.join('rt-polaritydata', 'rt-polarity.neg')
-        self.POS_TAGS_TO_AUG = ['JJ', 'JJS', 'RB', 'RBS']#['JJ', 'JJR', 'JJS', 'RB', 'RBR', 'RBS'] 
+        self.POS_TAGS_TO_AUG = ['JJS', 'RBS']#['VB', 'VBD', 'VBG', 'VBN', 'VBP', 'VBZ']#['JJ', 'JJR', 'JJS', 'RB', 'RBR', 'RBS'] 
         self.pos_corpus = []
         self.neg_corpus = []
         self.test_corpus = []
@@ -33,6 +33,9 @@ class MoviesReviewClassifier:
 
         self.pos_aug_corpus = []
         self.neg_aug_corpus = []
+
+        self.train_pos_tmp = []
+        self.train_neg_tmp = []
 
         self.mis_classification = []
         self.word2vec_model = gensim.models.KeyedVectors.load_word2vec_format('GoogleNews-vectors-negative300.bin.gz', binary=True)
@@ -50,8 +53,8 @@ class MoviesReviewClassifier:
 
     def split_data(self):
         print 'SPLITTING DATA\n'
-        self.pos_corpus = self.pos_corpus + self.pos_aug_corpus
-        self.neg_corpus = self.neg_corpus + self.neg_aug_corpus
+        # self.pos_corpus = self.pos_corpus + self.pos_aug_corpus
+        # self.neg_corpus = self.neg_corpus + self.neg_aug_corpus
 
         full_corpus = self.pos_corpus + self.neg_corpus
         y_all = ['pos']*len(self.pos_corpus) + ['neg']*len(self.neg_corpus)
@@ -60,6 +63,15 @@ class MoviesReviewClassifier:
         neg_train_vs_test_cutoff = int(math.floor(len(self.neg_corpus)*self.train_vs_test_cutoff))
         
         X_train_pos, X_train_neg = self.pos_corpus[:pos_train_vs_test_cutoff], self.neg_corpus[:neg_train_vs_test_cutoff]
+        
+        self.train_pos_tmp = X_train_pos
+        self.train_neg_tmp = X_train_neg
+
+        self.augment_corpus()
+
+        X_train_pos = X_train_pos + self.pos_aug_corpus
+        X_train_neg = X_train_neg + self.neg_aug_corpus
+
         y_train_pos, y_train_neg = ['pos']*len(self.pos_corpus[:pos_train_vs_test_cutoff]), ['neg']*len(self.neg_corpus[:neg_train_vs_test_cutoff])
 
         pos_train_vs_valid_cutoff = int(math.floor((len(X_train_pos))*self.train_vs_valid_cutoff))
@@ -152,6 +164,9 @@ class MoviesReviewClassifier:
         return list_generated_sentences
 
     def augment_sentence(self, sentence, corpus_polarity='pos'):
+        # add 5-gram sentences around modified record
+        # consider only sentences between certain length
+
         try:
             tokenized_sentence = word_tokenize(sentence)
             tagged_sen = nltk.pos_tag(tokenized_sentence)
@@ -231,10 +246,10 @@ class MoviesReviewClassifier:
 
     def augment_corpus(self):
         print 'AUGMENTING DATA\n'
-        for s in self.pos_corpus:
+        for s in self.train_pos_tmp:
             self.augment_sentence(s, 'pos')
 
-        for s in self.neg_corpus:
+        for s in self.train_neg_tmp:
             self.augment_sentence(s, 'neg')
 
     def main(self):
@@ -242,7 +257,7 @@ class MoviesReviewClassifier:
         self.read_data()
 
         # phase 2: augment data
-        self.augment_corpus()
+        # self.augment_corpus()
 
         # phase 3: run final train, with the optimal params and samples split ratios, as obtained in phase 3 & 4
         self.run_final_setup()

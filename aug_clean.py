@@ -15,10 +15,12 @@ from sklearn.metrics import confusion_matrix
 
 from nltk.corpus import wordnet as wn
 
+import gensim  
+
 
 class MoviesReviewClassifier:
 
-    def __init__(self):
+    def __init__(self, use_word2vec):
         self.POS_REVIEW_FILE_PATH = os.path.join('rt-polaritydata', 'rt-polarity.pos')
         self.NEG_REVIEW_FILE_PATH = os.path.join('rt-polaritydata', 'rt-polarity.neg')
         self.POS_TAGS_TO_AUG = ['JJ', 'JJS', 'RB', 'RBS']#['JJ', 'JJR', 'JJS', 'RB', 'RBR', 'RBS'] 
@@ -27,11 +29,13 @@ class MoviesReviewClassifier:
         self.test_corpus = []
         self.train_vs_test_cutoff = 0.7
         self.train_vs_valid_cutoff = 0.7
+        self.use_word2vec = use_word2vec
 
         self.pos_aug_corpus = []
         self.neg_aug_corpus = []
 
         self.mis_classification = []
+        self.word2vec_model = gensim.models.KeyedVectors.load_word2vec_format('GoogleNews-vectors-negative300.bin.gz', binary=True)
         print 'Movies review classifier ready for work!!!'
 
     def read_data(self):
@@ -137,9 +141,20 @@ class MoviesReviewClassifier:
             if y_predicted_test[i] != y_test[i]:
                 self.mis_classification.append([y_predicted_test[i], y_test[i], X_test[i]])
 
+    def word2vec_implementation(self, sentence, word_index):
+        # generate the top 5 positively related words
+        similar_words = self.word2vec_model.most_similar(positive=sentence[word_index])
+        list_generated_sentences = []
+        for similar_word in similar_words:
+            new_sentence = sentence
+            new_sentence[word_index] = similar_word
+            list_generated_sentences.append(new_sentence)
+        return list_generated_sentences
+
     def augment_sentence(self, sentence, corpus_polarity='pos'):
         try:
-            tagged_sen = nltk.pos_tag(word_tokenize(sentence))
+            tokenized_sentence = word_tokenize(sentence)
+            tagged_sen = nltk.pos_tag(tokenized_sentence)
         except UnicodeDecodeError:
             return
         aug_pos_sent = []
@@ -147,21 +162,46 @@ class MoviesReviewClassifier:
         neg_flag = False
         pos_flag = False 
 
+        '''
+        augmented_sentences_w2v = []
+        for i in range(len(tagged_sen)):
+            if tagged_sen[i][1] in self.POS_TAGS_TO_AUG:
+                augmented_sentences_w2v.append(self.word2vec_implementation(tokenized_sentence, i))
+        
+        return augmented_sentences_w2v
+        '''
+
         for i in range(len(tagged_sen)):
             syno_lst = [] 
             anto_lst = [] 
-            if tagged_sen[i][1] in self.POS_TAGS_TO_AUG:               
+            if tagged_sen[i][1] in self.POS_TAGS_TO_AUG:             
                 # tagged_sen[i][0], tagged_sen[i][1], 
-                try:
-                    for syn in wn.synsets(tagged_sen[i][0]): 
-                        for l in syn.lemmas(): 
-                            syno_lst.append(l.name().encode('utf-8'))
-                         
-                            if l.antonyms(): 
-                                anto_lst.append(l.antonyms()[0].name().encode('utf-8'))
 
-                except UnicodeDecodeError:
-                    return
+                if not self.use_word2vec:
+                    try:
+                        for syn in wn.synsets(tagged_sen[i][0]): 
+                            for l in syn.lemmas(): 
+                                syno_lst.append(l.name().encode('utf-8'))
+                            
+                                if l.antonyms(): 
+                                    anto_lst.append(l.antonyms()[0].name().encode('utf-8'))
+
+                    except UnicodeDecodeError:
+                        return
+                else:
+                    # take whichever of the negative or positive score is the highest
+                    try:
+                        pos_similar_w2v =  \
+                            self.word2vec_model.most_similar(positive=tagged_sen[i][0], topn=1)
+                        neg_similar_w2v = \
+                            self.word2vec_model.most_similar(negative=tagged_sen[i][0], topn=1)
+                        if pos_similar_w2v > neg_similar_w2v:
+                            syno_lst.append(pos_similar_w2v).encode("utf-8")
+                        else:
+                            anto_lst.append(neg_similar_w2v.encode("utf-8"))
+                    except:
+                        print("not found")
+
                 if syno_lst != []:
                     if corpus_polarity == 'pos':
                         aug_pos_sent.append(syno_lst[0].encode('utf-8'))
@@ -175,6 +215,7 @@ class MoviesReviewClassifier:
                         aug_pos_sent.append(anto_lst[0].encode('utf-8'))
                     neg_flag = True
 
+                    
             else:
                 aug_pos_sent.append(tagged_sen[i][0])
                 aug_neg_sent.append(tagged_sen[i][0])
@@ -208,6 +249,6 @@ class MoviesReviewClassifier:
 
 
 if __name__ == "__main__":
-    mrc = MoviesReviewClassifier()
+    mrc = MoviesReviewClassifier(use_word2vec=True)
     print 'start classifying:'
     mrc.main()

@@ -15,6 +15,8 @@ from sklearn.metrics import confusion_matrix
 
 from nltk.corpus import wordnet as wn
 
+from itertools import compress, product
+
 import gensim  
 
 
@@ -23,7 +25,6 @@ class MoviesReviewClassifier:
     def __init__(self, use_word2vec):
         self.POS_REVIEW_FILE_PATH = os.path.join('rt-polaritydata', 'rt-polarity.pos')
         self.NEG_REVIEW_FILE_PATH = os.path.join('rt-polaritydata', 'rt-polarity.neg')
-        self.POS_TAGS_TO_AUG = ['JJS', 'RBS']#['VB', 'VBD', 'VBG', 'VBN', 'VBP', 'VBZ']#['JJ', 'JJR', 'JJS', 'RB', 'RBR', 'RBS'] 
         self.pos_corpus = []
         self.neg_corpus = []
         self.test_corpus = []
@@ -38,7 +39,8 @@ class MoviesReviewClassifier:
         self.train_neg_tmp = []
 
         self.mis_classification = []
-        self.word2vec_model = gensim.models.KeyedVectors.load_word2vec_format('GoogleNews-vectors-negative300.bin.gz', binary=True)
+        if use_word2vec:
+            self.word2vec_model = gensim.models.KeyedVectors.load_word2vec_format('GoogleNews-vectors-negative300.bin.gz', binary=True)
         print 'Movies review classifier ready for work!!!'
 
     def read_data(self):
@@ -51,7 +53,7 @@ class MoviesReviewClassifier:
         with open(self.NEG_REVIEW_FILE_PATH, 'r') as sentences:
             self.neg_corpus = sentences.readlines()
 
-    def split_data(self):
+    def split_data(self, pos_combination):
         print 'SPLITTING DATA\n'
         # self.pos_corpus = self.pos_corpus + self.pos_aug_corpus
         # self.neg_corpus = self.neg_corpus + self.neg_aug_corpus
@@ -67,7 +69,7 @@ class MoviesReviewClassifier:
         self.train_pos_tmp = X_train_pos
         self.train_neg_tmp = X_train_neg
 
-        self.augment_corpus()
+        self.augment_corpus(pos_combination)
 
         X_train_pos = X_train_pos + self.pos_aug_corpus
         X_train_neg = X_train_neg + self.neg_aug_corpus
@@ -109,6 +111,10 @@ class MoviesReviewClassifier:
         tune_lst = []
         tune_lst.append({'ngram_min': 1,'ngram_max': 1,'stop_words': None, 'min_df': 3, 'max_df': 0.95, 'max_features':50000})
         return tune_lst
+    
+    
+    def combinations(self, items):
+        return ( frozenset(compress(items,mask)) for mask in product(*[[0,1]]*len(items)) )
 
     def run_final_setup(self):
         params_lst = self.get_best_params()
@@ -119,24 +125,34 @@ class MoviesReviewClassifier:
         split_train_vs_test_cutoffs = [0.7]
         split_train_vs_valid_cutoffs = [0.95]
 
+        # generate all combinations of pos considered
+        pos_to_consider = ['JJ', 'JJR', 'JJS', 'RB', 'RBR', 'RBS'] 
+        pos_combinations = self.combinations(pos_to_consider)
+
+
         X_train, X_valid, y_train, y_valid, X_test, y_test = [], [], [], [], [], []
         max_vals = {'maxval': [0.2]}
+        results_combinations = {}
         for params in params_lst:
             for i in split_train_vs_test_cutoffs:
                 self.train_vs_test_cutoff = i
                 for k in split_train_vs_valid_cutoffs:
-                    self.train_vs_valid_cutoff = k
-                    X_train, X_valid, y_train, y_valid, X_test, y_test = self.split_data()
-                    print len(X_train), len(X_valid), len(X_test)
-                    train_vecs, valid_vecs, vecter = self.get_vectors_tfidf_vectorizer(params, X_train, X_valid)
-                    vectorizer = vecter
-                    clr.fit(train_vecs, y_train)
-                    y_predicted = clr.predict(valid_vecs)
-                    acc = accuracy_score(y_valid, y_predicted)
-                    if acc > max_vals['maxval'][0]:
-                        max_vals['maxval'] = [acc, clr_key, i, k, params]
-                    print clr_key
-                    print 'Accuracy:', accuracy_score(y_valid, y_predicted)
+                    for pos_combination in pos_combinations:
+                        self.train_vs_valid_cutoff = k
+                        X_train, X_valid, y_train, y_valid, X_test, y_test = self.split_data(pos_combination)
+                        print len(X_train), len(X_valid), len(X_test)
+                        train_vecs, valid_vecs, vecter = self.get_vectors_tfidf_vectorizer(params, X_train, X_valid)
+                        vectorizer = vecter
+                        clr.fit(train_vecs, y_train)
+                        y_predicted = clr.predict(valid_vecs)
+                        acc = accuracy_score(y_valid, y_predicted)
+                        if acc > max_vals['maxval'][0]:
+                            max_vals['maxval'] = [acc, clr_key, i, k, params]
+
+                        results_combinations[(i, k, pos_combination)] = acc
+                        print pos_combination
+                        print clr_key
+                        print 'Accuracy:', accuracy_score(y_valid, y_predicted)
 
         print ':::::performance on testing sample:::::'
         X_test_tr = vectorizer.transform(X_test)
@@ -163,7 +179,7 @@ class MoviesReviewClassifier:
             list_generated_sentences.append(new_sentence)
         return list_generated_sentences
 
-    def augment_sentence(self, sentence, corpus_polarity='pos'):
+    def augment_sentence(self, sentence, pos_combination, corpus_polarity='pos'):
         # add 5-gram sentences around modified record
         # consider only sentences between certain length
 
@@ -189,7 +205,7 @@ class MoviesReviewClassifier:
         for i in range(len(tagged_sen)):
             syno_lst = [] 
             anto_lst = [] 
-            if tagged_sen[i][1] in self.POS_TAGS_TO_AUG:             
+            if tagged_sen[i][1] in pos_combination:             
                 # tagged_sen[i][0], tagged_sen[i][1], 
 
                 if not self.use_word2vec:
@@ -205,17 +221,32 @@ class MoviesReviewClassifier:
                         return
                 else:
                     # take whichever of the negative or positive score is the highest
+                    pos_found, neg_found = False, False
                     try:
-                        pos_similar_w2v =  \
-                            self.word2vec_model.most_similar(positive=tagged_sen[i][0], topn=1)
-                        neg_similar_w2v = \
-                            self.word2vec_model.most_similar(negative=tagged_sen[i][0], topn=1)
-                        if pos_similar_w2v > neg_similar_w2v:
-                            syno_lst.append(pos_similar_w2v).encode("utf-8")
-                        else:
-                            anto_lst.append(neg_similar_w2v.encode("utf-8"))
+                        pos_similar_w2v = self.word2vec_model.most_similar(positive=tagged_sen[i][0], topn=1)[0]
+                        pos_found = True
+                    except :
+                        pass
+                    try:
+                        neg_similar_w2v = self.word2vec_model.most_similar(negative=tagged_sen[i][0], topn=1)[0]
+                        neg_found = True
                     except:
-                        print("not found")
+                        pass
+                    
+                    if pos_found and not neg_found:
+                        syno_lst.append(pos_similar_w2v[0].encode("utf-8"))
+                    elif not pos_found and neg_found:
+                        anto_lst.append(neg_similar_w2v[0].encode("utf-8"))
+                    elif not pos_found and not neg_found:
+                        pass
+                    else:
+                        if pos_similar_w2v[1] > neg_similar_w2v[1]:
+                            syno_lst.append(pos_similar_w2v[0].encode("utf-8"))
+                        else:
+                            anto_lst.append(neg_similar_w2v[0].encode("utf-8"))
+                        
+
+
 
                 if syno_lst != []:
                     if corpus_polarity == 'pos':
@@ -244,13 +275,13 @@ class MoviesReviewClassifier:
         if neg_flag and (len(aug_neg_sent) >= len(sentence.split())):
             self.neg_aug_corpus.append(" ".join(aug_neg_sent))
 
-    def augment_corpus(self):
+    def augment_corpus(self, pos_combination):
         print 'AUGMENTING DATA\n'
         for s in self.train_pos_tmp:
-            self.augment_sentence(s, 'pos')
+            self.augment_sentence(s, pos_combination, 'pos')
 
         for s in self.train_neg_tmp:
-            self.augment_sentence(s, 'neg')
+            self.augment_sentence(s, pos_combination,'neg')
 
     def main(self):
         # phase 1: read data from files;
@@ -264,6 +295,6 @@ class MoviesReviewClassifier:
 
 
 if __name__ == "__main__":
-    mrc = MoviesReviewClassifier(use_word2vec=True)
+    mrc = MoviesReviewClassifier(use_word2vec=False)
     print 'start classifying:'
     mrc.main()

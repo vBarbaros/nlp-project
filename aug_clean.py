@@ -71,16 +71,24 @@ class MoviesReviewClassifier:
 
         self.augment_corpus(pos_combination)
 
-        X_train_pos = X_train_pos + self.pos_aug_corpus
-        X_train_neg = X_train_neg + self.neg_aug_corpus
+        # X_train_pos = X_train_pos + self.pos_aug_corpus
+        # X_train_neg = X_train_neg + self.neg_aug_corpus
 
         y_train_pos, y_train_neg = ['pos']*len(self.pos_corpus[:pos_train_vs_test_cutoff]), ['neg']*len(self.neg_corpus[:neg_train_vs_test_cutoff])
 
         pos_train_vs_valid_cutoff = int(math.floor((len(X_train_pos))*self.train_vs_valid_cutoff))
         neg_train_vs_valid_cutoff = int(math.floor((len(X_train_neg))*self.train_vs_valid_cutoff))
 
-        X_train = X_train_pos[:pos_train_vs_valid_cutoff] + X_train_neg[:neg_train_vs_valid_cutoff]
-        y_train = ['pos']*len(X_train_pos[:pos_train_vs_valid_cutoff]) + ['neg']*len(X_train_neg[:neg_train_vs_valid_cutoff])
+
+        X_train_pos_aug = X_train_pos[:pos_train_vs_valid_cutoff] + self.pos_aug_corpus
+        X_train_neg_aug = X_train_neg[:neg_train_vs_valid_cutoff] + self.neg_aug_corpus
+        X_train = X_train_pos_aug + X_train_neg_aug
+        y_train = ['pos']*len(X_train_pos_aug) + ['neg']*len(X_train_neg_aug)
+        # X_train = X_train_pos[:pos_train_vs_valid_cutoff] + X_train_neg[:neg_train_vs_valid_cutoff]
+        # y_train = ['pos']*len(X_train_pos[:pos_train_vs_valid_cutoff]) + ['neg']*len(X_train_neg[:neg_train_vs_valid_cutoff])
+
+
+
         X_valid = X_train_pos[pos_train_vs_valid_cutoff:] + X_train_neg[neg_train_vs_valid_cutoff:]
         y_valid = ['pos']*len(X_train_pos[pos_train_vs_valid_cutoff:]) + ['neg']*len(X_train_neg[neg_train_vs_valid_cutoff:])
 
@@ -122,11 +130,11 @@ class MoviesReviewClassifier:
         clr_key = 'Naive Bayes'
         vectorizer = None
 
-        split_train_vs_test_cutoffs = [0.7]
-        split_train_vs_valid_cutoffs = [0.95]
+        split_train_vs_test_cutoffs = [0.8]
+        split_train_vs_valid_cutoffs = [0.7]
 
         # generate all combinations of pos considered
-        pos_to_consider = ['JJ', 'JJR', 'JJS', 'RB', 'RBR', 'RBS'] 
+        pos_to_consider = ['JJ', 'JJS', 'RBS'] #['JJ', 'JJR', 'JJS', 'RB', 'RBR', 'RBS'] #
         pos_combinations = self.combinations(pos_to_consider)
 
 
@@ -147,7 +155,7 @@ class MoviesReviewClassifier:
                         y_predicted = clr.predict(valid_vecs)
                         acc = accuracy_score(y_valid, y_predicted)
                         if acc > max_vals['maxval'][0]:
-                            max_vals['maxval'] = [acc, clr_key, i, k, params]
+                            max_vals['maxval'] = [acc, clr_key, i, k, params, pos_combination]
 
                         results_combinations[(i, k, pos_combination)] = acc
                         print pos_combination
@@ -159,6 +167,7 @@ class MoviesReviewClassifier:
         y_predicted_test = clr.predict(X_test_tr)
         print 'Accuracy:', accuracy_score(y_test, y_predicted_test)
         print confusion_matrix(y_test, y_predicted_test)
+        print max_vals['maxval']
         # :::::preformance on testing sample:::::
         # Accuracy: 0.78875
         # [[1309  291]
@@ -179,7 +188,7 @@ class MoviesReviewClassifier:
             list_generated_sentences.append(new_sentence)
         return list_generated_sentences
 
-    def augment_sentence(self, sentence, pos_combination, corpus_polarity='pos'):
+    def augment_sentence(self, sentence, pos_combination, corpus_polarity='pos', sent_len_threshold=0, use_n_grams_sents=0, nth_word=0):
         # add 5-gram sentences around modified record
         # consider only sentences between certain length
 
@@ -189,7 +198,9 @@ class MoviesReviewClassifier:
         except UnicodeDecodeError:
             return
         aug_pos_sent = []
+        aug_pos_sent_at_idx = []
         aug_neg_sent = []
+        aug_neg_sent_at_idx = []
         neg_flag = False
         pos_flag = False 
 
@@ -250,38 +261,65 @@ class MoviesReviewClassifier:
 
                 if syno_lst != []:
                     if corpus_polarity == 'pos':
-                        aug_pos_sent.append(syno_lst[0].encode('utf-8'))
+                        if nth_word < len(syno_lst):
+                            aug_pos_sent.append(syno_lst[nth_word].encode('utf-8'))
+                        else:
+                            aug_pos_sent.append(syno_lst[0].encode('utf-8'))
+                        aug_pos_sent_at_idx.append(i)
                     else:
-                        aug_neg_sent.append(syno_lst[0].encode('utf-8'))
+                        if nth_word < len(syno_lst):
+                            aug_neg_sent.append(syno_lst[nth_word].encode('utf-8'))
+                        else:
+                            aug_neg_sent.append(syno_lst[0].encode('utf-8'))
+                        aug_neg_sent_at_idx.append(i)
                     pos_flag = True
                 if anto_lst != []:
                     if corpus_polarity == 'pos':
-                        aug_neg_sent.append(anto_lst[0].encode('utf-8'))
+                        if nth_word < len(anto_lst):
+                            aug_neg_sent.append(anto_lst[nth_word].encode('utf-8'))
+                        else:
+                            aug_neg_sent.append(anto_lst[0].encode('utf-8'))
+                        aug_neg_sent_at_idx.append(i)
                     else:
-                        aug_pos_sent.append(anto_lst[0].encode('utf-8'))
+                        if nth_word < len(anto_lst):
+                            aug_pos_sent.append(anto_lst[nth_word].encode('utf-8'))
+                        else:
+                            aug_pos_sent.append(anto_lst[0].encode('utf-8'))
+                        aug_pos_sent_at_idx.append(i)
                     neg_flag = True
 
                     
             else:
                 aug_pos_sent.append(tagged_sen[i][0])
                 aug_neg_sent.append(tagged_sen[i][0])
-        # print ':::syno::: ', syno_lst, '\n'
-        # print sentence, len(sentence.split()), '\n'
-        # print aug_pos_sent, " ".join(aug_pos_sent), len(aug_pos_sent), '\n'
-        # print aug_neg_sent, " ".join(aug_neg_sent), len(aug_neg_sent), '\n'
-        # print ':::anto::: ', anto_lst, '\n'
-        if pos_flag and (len(aug_pos_sent) >= len(sentence.split())):
-            self.pos_aug_corpus.append(" ".join(aug_pos_sent))
-        if neg_flag and (len(aug_neg_sent) >= len(sentence.split())):
-            self.neg_aug_corpus.append(" ".join(aug_neg_sent))
+
+
+        if sent_len_threshold != 0:
+            # if threshold given => take only those sents up to the value
+            if pos_flag and (len(aug_pos_sent) <= sent_len_threshold):
+                self.pos_aug_corpus.append(" ".join(aug_pos_sent))
+            if neg_flag and (len(aug_neg_sent) <= sent_len_threshold):
+                self.neg_aug_corpus.append(" ".join(aug_neg_sent))
+        elif use_n_grams_sents != 0:
+            for idx in aug_pos_sent_at_idx:
+                self.pos_aug_corpus.append(" ".join(aug_pos_sent[idx - use_n_grams_sents : idx + use_n_grams_sents]))
+
+            for idx in aug_neg_sent_at_idx:
+                self.neg_aug_corpus.append(" ".join(aug_neg_sent[idx - use_n_grams_sents : idx + use_n_grams_sents]))
+        else:
+            # just take the senteces that have been augmented
+            if pos_flag and (len(aug_pos_sent) >= len(sentence.split())):
+                self.pos_aug_corpus.append(" ".join(aug_pos_sent))
+            if neg_flag and (len(aug_neg_sent) >= len(sentence.split())):
+                self.neg_aug_corpus.append(" ".join(aug_neg_sent))
 
     def augment_corpus(self, pos_combination):
         print 'AUGMENTING DATA\n'
         for s in self.train_pos_tmp:
-            self.augment_sentence(s, pos_combination, 'pos')
+            self.augment_sentence(s, pos_combination,'pos', sent_len_threshold=0, use_n_grams_sents=4, nth_word=3)
 
         for s in self.train_neg_tmp:
-            self.augment_sentence(s, pos_combination,'neg')
+            self.augment_sentence(s, pos_combination,'neg', sent_len_threshold=0, use_n_grams_sents=4, nth_word=3)
 
     def main(self):
         # phase 1: read data from files;

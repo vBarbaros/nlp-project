@@ -49,8 +49,6 @@ class MoviesReviewClassifier:
         # and labels 'pos' or 'neg' after each list
         with open(self.POS_REVIEW_FILE_PATH, 'r') as sentences:
             self.pos_corpus = sentences.readlines()
-        
-        print self.pos_corpus[:3]
 
         with open(self.NEG_REVIEW_FILE_PATH, 'r') as sentences:
             self.neg_corpus = sentences.readlines()
@@ -67,11 +65,11 @@ class MoviesReviewClassifier:
                 # read from file and put the entire content of it as single string
                 self.pos_corpus.append(sentences.readlines()[0])
         
-        # pos_test_rev_path = 'aclimdb/test/pos/'
-        # files_pos_test_review = os.listdir(pos_test_rev_path)
-        # for fl in files_pos_test_review:
-        #     with open(pos_test_rev_path + fl, 'r') as sentences:
-        #         self.pos_corpus.append(sentences.readlines()[0])
+        pos_test_rev_path = 'aclimdb/test/pos/'
+        files_pos_test_review = os.listdir(pos_test_rev_path)
+        for fl in files_pos_test_review:
+            with open(pos_test_rev_path + fl, 'r') as sentences:
+                self.pos_corpus.append(sentences.readlines()[0])
 
         neg_train_rev_path = 'aclimdb/train/neg/'
         files_neg_train_review = os.listdir(neg_train_rev_path)
@@ -80,13 +78,13 @@ class MoviesReviewClassifier:
                 # read from file and put the entire content of it as single string
                 self.neg_corpus.append(sentences.readlines()[0])
         
-        # neg_test_rev_path = 'aclimdb/test/neg/'
-        # files_neg_test_review = os.listdir(neg_test_rev_path)
-        # for fl in files_neg_test_review:
-        #     with open(neg_test_rev_path + fl, 'r') as sentences:
-        #         self.neg_corpus.append(sentences.readlines()[0])
+        neg_test_rev_path = 'aclimdb/test/neg/'
+        files_neg_test_review = os.listdir(neg_test_rev_path)
+        for fl in files_neg_test_review:
+            with open(neg_test_rev_path + fl, 'r') as sentences:
+                self.neg_corpus.append(sentences.readlines()[0])
 
-    def split_data(self, pos_combination):
+    def split_data(self, pos_combination, slt, ungs, nw):
         print 'SPLITTING DATA\n'
 
         full_corpus = self.pos_corpus + self.neg_corpus
@@ -107,7 +105,7 @@ class MoviesReviewClassifier:
 
         if len(pos_combination) != 0:
             self.pos_aug_corpus, self.neg_aug_corpus = [], []
-            self.augment_corpus(pos_combination) # augment based only on the training set 
+            self.augment_corpus(pos_combination, slt, ungs, nw) # augment based only on the training set 
 
         X_train_pos_aug = X_train_pos[:pos_train_vs_valid_cutoff] + self.pos_aug_corpus
         X_train_neg_aug = X_train_neg[:neg_train_vs_valid_cutoff] + self.neg_aug_corpus
@@ -151,6 +149,66 @@ class MoviesReviewClassifier:
     def combinations(self, items):
         return ( frozenset(compress(items,mask)) for mask in product(*[[0,1]]*len(items)) )
 
+    def get_params_tune_augmentation_model(self):
+        tune_dict = {}
+        #slt == sent_len_threshold, ungs == use_n_grams_sents, nw == nth_word
+        tune_dict['slt'] = [0, 0, 0, 10, 20, 30]
+        tune_dict['ungs'] = [1, 2, 3]
+        tune_dict['nw'] = [0, 1, 2, 3, -1]
+
+        return tune_dict
+
+    def fine_tune_params_on_selected_model_and_vectorizer(self):
+        params_lst = self.get_best_params() 
+        clr = MultinomialNB()
+        clr_key = 'Naive Bayes'
+        vectorizer = None
+
+        params_for_augm_dict = self.get_params_tune_augmentation_model()
+        # print params_for_augm_dict
+
+        # generate all combinations of pos considered
+        pos_to_consider = ['JJ', 'JJR', 'JJS', 'RB', 'RBR', 'RBS'] 
+        pos_combinations = self.combinations(pos_to_consider)
+
+        # using default split of dataset, here 
+        # self.train_vs_test_cutoff = 0.7
+        # self.train_vs_valid_cutoff = 0.7
+
+        X_train, X_valid, y_train, y_valid, X_test, y_test = [], [], [], [], [], []
+        max_vals = {'maxval': [0.2]}
+        results_combinations = {}
+        
+        # yeah, we can call the function above and instantiate this
+        #slt == sent_len_threshold, ungs == use_n_grams_sents, nw == nth_word
+        slt_lst = [10, 20, 30, 0, 0, 0]
+        ungs_lst = [1, 2, 3]
+        nw_lst = [0, 1, 2, 3, -1]
+
+        for pos_combination in pos_combinations:
+            for slt in slt_lst:
+                for ungs in ungs_lst:
+                    for nw in nw_lst:
+                        X_train, X_valid, y_train, y_valid, X_test, y_test = self.split_data(pos_combination, slt, ungs, nw)
+
+                        print len(X_train), len(X_valid), len(X_test)
+                        train_vecs, valid_vecs, vecter = self.get_vectors_tfidf_vectorizer(params_lst[0], X_train, X_valid)
+                        vectorizer = vecter
+                        clr.fit(train_vecs, y_train)
+                        y_predicted = clr.predict(valid_vecs)
+                        acc = accuracy_score(y_valid, y_predicted)
+                        if acc > max_vals['maxval'][0]:
+                            max_vals['maxval'] = [acc, clr_key, params_lst[0], pos_combination, 'slt: ' + str(slt), 'ungs: ' + str(ungs), 'nw: ' + str(nw)]
+
+                        results_combinations[(pos_combination)] = acc
+                        print pos_combination
+                        print clr_key
+                        print 'Accuracy:', accuracy_score(y_valid, y_predicted)
+                        print 'slt', slt, 'ungs', ungs, 'nw', nw
+
+        print '::::::::::done::::::::::'
+        print 'max acc: ', max_vals['maxval']
+
     def run_final_setup(self):
         params_lst = self.get_best_params()
         clr = MultinomialNB()
@@ -161,7 +219,7 @@ class MoviesReviewClassifier:
         split_train_vs_valid_cutoffs = [0.7]
 
         # generate all combinations of pos considered
-        pos_to_consider = ['JJ', 'JJS', 'RBS'] #['JJ', 'JJR', 'JJS', 'RB', 'RBR', 'RBS'] #
+        pos_to_consider = []#['JJ', 'JJS', 'RBS'] #['JJ', 'JJR', 'JJS', 'RB', 'RBR', 'RBS'] #
         pos_combinations = self.combinations(pos_to_consider)
 
 
@@ -174,7 +232,7 @@ class MoviesReviewClassifier:
                 for k in split_train_vs_valid_cutoffs:
                     for pos_combination in pos_combinations:
                         self.train_vs_valid_cutoff = k
-                        X_train, X_valid, y_train, y_valid, X_test, y_test = self.split_data(pos_combination)
+                        X_train, X_valid, y_train, y_valid, X_test, y_test = self.split_data(pos_combination, 0, 0, 0)
                         print len(X_train), len(X_valid), len(X_test)
                         train_vecs, valid_vecs, vecter = self.get_vectors_tfidf_vectorizer(params, X_train, X_valid)
                         vectorizer = vecter
@@ -340,22 +398,24 @@ class MoviesReviewClassifier:
             if neg_flag and (len(aug_neg_sent) >= len(sentence.split())):
                 self.neg_aug_corpus.append(" ".join(aug_neg_sent))
 
-    def augment_corpus(self, pos_combination):
+    def augment_corpus(self, pos_combination, slt, ungs, nw):
         print 'AUGMENTING DATA\n'
         for s in self.train_pos_tmp:
-            self.augment_sentence(s, pos_combination,'pos', sent_len_threshold=0, use_n_grams_sents=4, nth_word=3)
+            self.augment_sentence(s, pos_combination,'pos', sent_len_threshold=slt, use_n_grams_sents=ungs, nth_word=nw)
 
         for s in self.train_neg_tmp:
-            self.augment_sentence(s, pos_combination,'neg', sent_len_threshold=0, use_n_grams_sents=4, nth_word=3)
+            self.augment_sentence(s, pos_combination,'neg', sent_len_threshold=slt, use_n_grams_sents=ungs, nth_word=nw)
 
     def main(self):
         # phase 1: read data from files;
-        # self.read_data()
+        self.read_data()
+        # self.read_data_imdb()
 
-        self.read_data_imdb()
+        # phase 2: find best performing params for the augmentation setup
+        self.fine_tune_params_on_selected_model_and_vectorizer()
 
         # phase 3: run final train, with the optimal params and samples split ratios, as obtained in phase 3 & 4
-        self.run_final_setup()
+        # self.run_final_setup()
 
 
 if __name__ == "__main__":

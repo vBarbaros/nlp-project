@@ -50,13 +50,44 @@ class MoviesReviewClassifier:
         with open(self.POS_REVIEW_FILE_PATH, 'r') as sentences:
             self.pos_corpus = sentences.readlines()
         
+        print self.pos_corpus[:3]
+
         with open(self.NEG_REVIEW_FILE_PATH, 'r') as sentences:
             self.neg_corpus = sentences.readlines()
 
+    def read_data_imdb(self):
+        print 'READING DATA\n'
+        # tokenizes each sentence/review, puts it in a separate list
+        # and labels 'pos' or 'neg' after each list
+
+        pos_train_rev_path = 'aclimdb/train/pos/'
+        files_pos_train_review = os.listdir(pos_train_rev_path)#['0_9.txt', '1_7.txt', '2_9.txt']
+        for fl in files_pos_train_review:
+            with open(pos_train_rev_path + fl, 'r') as sentences:
+                # read from file and put the entire content of it as single string
+                self.pos_corpus.append(sentences.readlines()[0])
+        
+        # pos_test_rev_path = 'aclimdb/test/pos/'
+        # files_pos_test_review = os.listdir(pos_test_rev_path)
+        # for fl in files_pos_test_review:
+        #     with open(pos_test_rev_path + fl, 'r') as sentences:
+        #         self.pos_corpus.append(sentences.readlines()[0])
+
+        neg_train_rev_path = 'aclimdb/train/neg/'
+        files_neg_train_review = os.listdir(neg_train_rev_path)
+        for fl in files_neg_train_review:
+            with open(neg_train_rev_path + fl, 'r') as sentences:
+                # read from file and put the entire content of it as single string
+                self.neg_corpus.append(sentences.readlines()[0])
+        
+        # neg_test_rev_path = 'aclimdb/test/neg/'
+        # files_neg_test_review = os.listdir(neg_test_rev_path)
+        # for fl in files_neg_test_review:
+        #     with open(neg_test_rev_path + fl, 'r') as sentences:
+        #         self.neg_corpus.append(sentences.readlines()[0])
+
     def split_data(self, pos_combination):
         print 'SPLITTING DATA\n'
-        # self.pos_corpus = self.pos_corpus + self.pos_aug_corpus
-        # self.neg_corpus = self.neg_corpus + self.neg_aug_corpus
 
         full_corpus = self.pos_corpus + self.neg_corpus
         y_all = ['pos']*len(self.pos_corpus) + ['neg']*len(self.neg_corpus)
@@ -66,27 +97,23 @@ class MoviesReviewClassifier:
         
         X_train_pos, X_train_neg = self.pos_corpus[:pos_train_vs_test_cutoff], self.neg_corpus[:neg_train_vs_test_cutoff]
         
-        self.train_pos_tmp = X_train_pos
-        self.train_neg_tmp = X_train_neg
-
-        self.augment_corpus(pos_combination)
-
-        # X_train_pos = X_train_pos + self.pos_aug_corpus
-        # X_train_neg = X_train_neg + self.neg_aug_corpus
-
         y_train_pos, y_train_neg = ['pos']*len(self.pos_corpus[:pos_train_vs_test_cutoff]), ['neg']*len(self.neg_corpus[:neg_train_vs_test_cutoff])
 
         pos_train_vs_valid_cutoff = int(math.floor((len(X_train_pos))*self.train_vs_valid_cutoff))
         neg_train_vs_valid_cutoff = int(math.floor((len(X_train_neg))*self.train_vs_valid_cutoff))
 
+        self.train_pos_tmp = X_train_pos[:pos_train_vs_valid_cutoff]
+        self.train_neg_tmp = X_train_neg[:neg_train_vs_valid_cutoff]
+
+        if len(pos_combination) != 0:
+            self.pos_aug_corpus, self.neg_aug_corpus = [], []
+            self.augment_corpus(pos_combination) # augment based only on the training set 
 
         X_train_pos_aug = X_train_pos[:pos_train_vs_valid_cutoff] + self.pos_aug_corpus
         X_train_neg_aug = X_train_neg[:neg_train_vs_valid_cutoff] + self.neg_aug_corpus
+
         X_train = X_train_pos_aug + X_train_neg_aug
         y_train = ['pos']*len(X_train_pos_aug) + ['neg']*len(X_train_neg_aug)
-        # X_train = X_train_pos[:pos_train_vs_valid_cutoff] + X_train_neg[:neg_train_vs_valid_cutoff]
-        # y_train = ['pos']*len(X_train_pos[:pos_train_vs_valid_cutoff]) + ['neg']*len(X_train_neg[:neg_train_vs_valid_cutoff])
-
 
 
         X_valid = X_train_pos[pos_train_vs_valid_cutoff:] + X_train_neg[neg_train_vs_valid_cutoff:]
@@ -130,7 +157,7 @@ class MoviesReviewClassifier:
         clr_key = 'Naive Bayes'
         vectorizer = None
 
-        split_train_vs_test_cutoffs = [0.8]
+        split_train_vs_test_cutoffs = [0.5]
         split_train_vs_valid_cutoffs = [0.7]
 
         # generate all combinations of pos considered
@@ -323,10 +350,9 @@ class MoviesReviewClassifier:
 
     def main(self):
         # phase 1: read data from files;
-        self.read_data()
+        # self.read_data()
 
-        # phase 2: augment data
-        # self.augment_corpus()
+        self.read_data_imdb()
 
         # phase 3: run final train, with the optimal params and samples split ratios, as obtained in phase 3 & 4
         self.run_final_setup()

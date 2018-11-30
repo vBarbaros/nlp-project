@@ -181,9 +181,11 @@ class MoviesReviewClassifier:
         
         # yeah, we can call the function above and instantiate this
         #slt == sent_len_threshold, ungs == use_n_grams_sents, nw == nth_word
-        slt_lst = [10, 20, 30, 0] # if slt is not 0, then values of ungs DO NOT matter(check line 382 in augment_sentence() ), 
-        ungs_lst = [1, 2, 3]
-        nw_lst = [0, 1, 2, 3, -1]
+        slt_lst = [0] # BEST PERFORMING  == 30[10, 20, 30, 0] # if slt is not 0, 
+        # then values of ungs DO NOT matter(check line 382 in augment_sentence() ), 
+        
+        ungs_lst = [0] # [0, 1, 2, 3] # no n-grams for words; BEST PERFORMING == [2]
+        nw_lst = [0]#[0, 1, 2, 3, -1] # using nth word;  BEST PERFORMING == [1]
 
         for pos_combination in pos_combinations:
             for slt in slt_lst:

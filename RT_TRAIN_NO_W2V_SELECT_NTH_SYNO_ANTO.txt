@@ -1,0 +1,2876 @@
+Movies review classifier ready for work!!!
+start classifying:
+READING DATA
+
+SPLITTING DATA
+
+5222 2240 3200
+frozenset([])
+Naive Bayes
+Accuracy: 0.7674107142857143
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+5222 2240 3200
+frozenset([])
+Naive Bayes
+Accuracy: 0.7674107142857143
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+5222 2240 3200
+frozenset([])
+Naive Bayes
+Accuracy: 0.7674107142857143
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+5222 2240 3200
+frozenset([])
+Naive Bayes
+Accuracy: 0.7674107142857143
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+5222 2240 3200
+frozenset([])
+Naive Bayes
+Accuracy: 0.7674107142857143
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+5474 2240 3200
+frozenset(['RBS'])
+Naive Bayes
+Accuracy: 0.7674107142857143
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+5474 2240 3200
+frozenset(['RBS'])
+Naive Bayes
+Accuracy: 0.7674107142857143
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+5474 2240 3200
+frozenset(['RBS'])
+Naive Bayes
+Accuracy: 0.7678571428571429
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+5474 2240 3200
+frozenset(['RBS'])
+Naive Bayes
+Accuracy: 0.7665178571428571
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+5474 2240 3200
+frozenset(['RBS'])
+Naive Bayes
+Accuracy: 0.765625
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+5709 2240 3200
+frozenset(['RBR'])
+Naive Bayes
+Accuracy: 0.7674107142857143
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+5709 2240 3200
+frozenset(['RBR'])
+Naive Bayes
+Accuracy: 0.7665178571428571
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+5709 2240 3200
+frozenset(['RBR'])
+Naive Bayes
+Accuracy: 0.7691964285714286
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+5709 2240 3200
+frozenset(['RBR'])
+Naive Bayes
+Accuracy: 0.7678571428571429
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+5709 2240 3200
+frozenset(['RBR'])
+Naive Bayes
+Accuracy: 0.765625
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+5957 2240 3200
+frozenset(['RBS', 'RBR'])
+Naive Bayes
+Accuracy: 0.7674107142857143
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+5957 2240 3200
+frozenset(['RBS', 'RBR'])
+Naive Bayes
+Accuracy: 0.7678571428571429
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+5957 2240 3200
+frozenset(['RBS', 'RBR'])
+Naive Bayes
+Accuracy: 0.765625
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+5957 2240 3200
+frozenset(['RBS', 'RBR'])
+Naive Bayes
+Accuracy: 0.76875
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+5957 2240 3200
+frozenset(['RBS', 'RBR'])
+Naive Bayes
+Accuracy: 0.7629464285714286
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+8905 2240 3200
+frozenset(['RB'])
+Naive Bayes
+Accuracy: 0.7272321428571429
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+8905 2240 3200
+frozenset(['RB'])
+Naive Bayes
+Accuracy: 0.7254464285714286
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+8905 2240 3200
+frozenset(['RB'])
+Naive Bayes
+Accuracy: 0.7276785714285714
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+8905 2240 3200
+frozenset(['RB'])
+Naive Bayes
+Accuracy: 0.7272321428571429
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+8905 2240 3200
+frozenset(['RB'])
+Naive Bayes
+Accuracy: 0.7299107142857143
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+8996 2240 3200
+frozenset(['RBS', 'RB'])
+Naive Bayes
+Accuracy: 0.7299107142857143
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+8996 2240 3200
+frozenset(['RBS', 'RB'])
+Naive Bayes
+Accuracy: 0.7299107142857143
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+8996 2240 3200
+frozenset(['RBS', 'RB'])
+Naive Bayes
+Accuracy: 0.73125
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+8996 2240 3200
+frozenset(['RBS', 'RB'])
+Naive Bayes
+Accuracy: 0.73125
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+8996 2240 3200
+frozenset(['RBS', 'RB'])
+Naive Bayes
+Accuracy: 0.7339285714285714
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9090 2240 3200
+frozenset(['RBR', 'RB'])
+Naive Bayes
+Accuracy: 0.7267857142857143
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9090 2240 3200
+frozenset(['RBR', 'RB'])
+Naive Bayes
+Accuracy: 0.7366071428571429
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9090 2240 3200
+frozenset(['RBR', 'RB'])
+Naive Bayes
+Accuracy: 0.7348214285714286
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9090 2240 3200
+frozenset(['RBR', 'RB'])
+Naive Bayes
+Accuracy: 0.7290178571428572
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9090 2240 3200
+frozenset(['RBR', 'RB'])
+Naive Bayes
+Accuracy: 0.734375
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9177 2240 3200
+frozenset(['RBS', 'RBR', 'RB'])
+Naive Bayes
+Accuracy: 0.73125
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9177 2240 3200
+frozenset(['RBS', 'RBR', 'RB'])
+Naive Bayes
+Accuracy: 0.7388392857142857
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9177 2240 3200
+frozenset(['RBS', 'RBR', 'RB'])
+Naive Bayes
+Accuracy: 0.7352678571428571
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9177 2240 3200
+frozenset(['RBS', 'RBR', 'RB'])
+Naive Bayes
+Accuracy: 0.7334821428571429
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9177 2240 3200
+frozenset(['RBS', 'RBR', 'RB'])
+Naive Bayes
+Accuracy: 0.7366071428571429
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+5863 2240 3200
+frozenset(['JJS'])
+Naive Bayes
+Accuracy: 0.7660714285714286
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+5863 2240 3200
+frozenset(['JJS'])
+Naive Bayes
+Accuracy: 0.7705357142857143
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+5863 2240 3200
+frozenset(['JJS'])
+Naive Bayes
+Accuracy: 0.76875
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+5863 2240 3200
+frozenset(['JJS'])
+Naive Bayes
+Accuracy: 0.7669642857142858
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+5863 2240 3200
+frozenset(['JJS'])
+Naive Bayes
+Accuracy: 0.7647321428571429
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+6086 2240 3200
+frozenset(['RBS', 'JJS'])
+Naive Bayes
+Accuracy: 0.7651785714285714
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+6086 2240 3200
+frozenset(['RBS', 'JJS'])
+Naive Bayes
+Accuracy: 0.7651785714285714
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+6086 2240 3200
+frozenset(['RBS', 'JJS'])
+Naive Bayes
+Accuracy: 0.765625
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+6086 2240 3200
+frozenset(['RBS', 'JJS'])
+Naive Bayes
+Accuracy: 0.7647321428571429
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+6086 2240 3200
+frozenset(['RBS', 'JJS'])
+Naive Bayes
+Accuracy: 0.7642857142857142
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+6327 2240 3200
+frozenset(['JJS', 'RBR'])
+Naive Bayes
+Accuracy: 0.7691964285714286
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+6327 2240 3200
+frozenset(['JJS', 'RBR'])
+Naive Bayes
+Accuracy: 0.7660714285714286
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+6327 2240 3200
+frozenset(['JJS', 'RBR'])
+Naive Bayes
+Accuracy: 0.7691964285714286
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+6327 2240 3200
+frozenset(['JJS', 'RBR'])
+Naive Bayes
+Accuracy: 0.7691964285714286
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+6327 2240 3200
+frozenset(['JJS', 'RBR'])
+Naive Bayes
+Accuracy: 0.7674107142857143
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+6546 2240 3200
+frozenset(['RBS', 'JJS', 'RBR'])
+Naive Bayes
+Accuracy: 0.7678571428571429
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+6546 2240 3200
+frozenset(['RBS', 'JJS', 'RBR'])
+Naive Bayes
+Accuracy: 0.7665178571428571
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+6546 2240 3200
+frozenset(['RBS', 'JJS', 'RBR'])
+Naive Bayes
+Accuracy: 0.7696428571428572
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+6546 2240 3200
+frozenset(['RBS', 'JJS', 'RBR'])
+Naive Bayes
+Accuracy: 0.7665178571428571
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+6546 2240 3200
+frozenset(['RBS', 'JJS', 'RBR'])
+Naive Bayes
+Accuracy: 0.765625
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9156 2240 3200
+frozenset(['JJS', 'RB'])
+Naive Bayes
+Accuracy: 0.7334821428571429
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9156 2240 3200
+frozenset(['JJS', 'RB'])
+Naive Bayes
+Accuracy: 0.7294642857142857
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9156 2240 3200
+frozenset(['JJS', 'RB'])
+Naive Bayes
+Accuracy: 0.7361607142857143
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9156 2240 3200
+frozenset(['JJS', 'RB'])
+Naive Bayes
+Accuracy: 0.73125
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9156 2240 3200
+frozenset(['JJS', 'RB'])
+Naive Bayes
+Accuracy: 0.7392857142857143
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9241 2240 3200
+frozenset(['RBS', 'JJS', 'RB'])
+Naive Bayes
+Accuracy: 0.7361607142857143
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9241 2240 3200
+frozenset(['RBS', 'JJS', 'RB'])
+Naive Bayes
+Accuracy: 0.7361607142857143
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9241 2240 3200
+frozenset(['RBS', 'JJS', 'RB'])
+Naive Bayes
+Accuracy: 0.7352678571428571
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9241 2240 3200
+frozenset(['RBS', 'JJS', 'RB'])
+Naive Bayes
+Accuracy: 0.7352678571428571
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9241 2240 3200
+frozenset(['RBS', 'JJS', 'RB'])
+Naive Bayes
+Accuracy: 0.7401785714285715
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9337 2240 3200
+frozenset(['JJS', 'RBR', 'RB'])
+Naive Bayes
+Accuracy: 0.7330357142857142
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9337 2240 3200
+frozenset(['JJS', 'RBR', 'RB'])
+Naive Bayes
+Accuracy: 0.7379464285714286
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9337 2240 3200
+frozenset(['JJS', 'RBR', 'RB'])
+Naive Bayes
+Accuracy: 0.7388392857142857
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9337 2240 3200
+frozenset(['JJS', 'RBR', 'RB'])
+Naive Bayes
+Accuracy: 0.7339285714285714
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9337 2240 3200
+frozenset(['JJS', 'RBR', 'RB'])
+Naive Bayes
+Accuracy: 0.7392857142857143
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9418 2240 3200
+frozenset(['RBS', 'JJS', 'RBR', 'RB'])
+Naive Bayes
+Accuracy: 0.7352678571428571
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9418 2240 3200
+frozenset(['RBS', 'JJS', 'RBR', 'RB'])
+Naive Bayes
+Accuracy: 0.7375
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9418 2240 3200
+frozenset(['RBS', 'JJS', 'RBR', 'RB'])
+Naive Bayes
+Accuracy: 0.7401785714285715
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9418 2240 3200
+frozenset(['RBS', 'JJS', 'RBR', 'RB'])
+Naive Bayes
+Accuracy: 0.7361607142857143
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9418 2240 3200
+frozenset(['RBS', 'JJS', 'RBR', 'RB'])
+Naive Bayes
+Accuracy: 0.740625
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+5870 2240 3200
+frozenset(['JJR'])
+Naive Bayes
+Accuracy: 0.7674107142857143
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+5870 2240 3200
+frozenset(['JJR'])
+Naive Bayes
+Accuracy: 0.7678571428571429
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+5870 2240 3200
+frozenset(['JJR'])
+Naive Bayes
+Accuracy: 0.765625
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+5870 2240 3200
+frozenset(['JJR'])
+Naive Bayes
+Accuracy: 0.7696428571428572
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+5870 2240 3200
+frozenset(['JJR'])
+Naive Bayes
+Accuracy: 0.7665178571428571
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+6109 2240 3200
+frozenset(['RBS', 'JJR'])
+Naive Bayes
+Accuracy: 0.7683035714285714
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+6109 2240 3200
+frozenset(['RBS', 'JJR'])
+Naive Bayes
+Accuracy: 0.7683035714285714
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+6109 2240 3200
+frozenset(['RBS', 'JJR'])
+Naive Bayes
+Accuracy: 0.7674107142857143
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+6109 2240 3200
+frozenset(['RBS', 'JJR'])
+Naive Bayes
+Accuracy: 0.7691964285714286
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+6109 2240 3200
+frozenset(['RBS', 'JJR'])
+Naive Bayes
+Accuracy: 0.7660714285714286
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+6289 2240 3200
+frozenset(['JJR', 'RBR'])
+Naive Bayes
+Accuracy: 0.7678571428571429
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+6289 2240 3200
+frozenset(['JJR', 'RBR'])
+Naive Bayes
+Accuracy: 0.7678571428571429
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+6289 2240 3200
+frozenset(['JJR', 'RBR'])
+Naive Bayes
+Accuracy: 0.76875
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+6289 2240 3200
+frozenset(['JJR', 'RBR'])
+Naive Bayes
+Accuracy: 0.7696428571428572
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+6289 2240 3200
+frozenset(['JJR', 'RBR'])
+Naive Bayes
+Accuracy: 0.7660714285714286
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+6524 2240 3200
+frozenset(['RBS', 'JJR', 'RBR'])
+Naive Bayes
+Accuracy: 0.7669642857142858
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+6524 2240 3200
+frozenset(['RBS', 'JJR', 'RBR'])
+Naive Bayes
+Accuracy: 0.7674107142857143
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+6524 2240 3200
+frozenset(['RBS', 'JJR', 'RBR'])
+Naive Bayes
+Accuracy: 0.76875
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+6524 2240 3200
+frozenset(['RBS', 'JJR', 'RBR'])
+Naive Bayes
+Accuracy: 0.7683035714285714
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+6524 2240 3200
+frozenset(['RBS', 'JJR', 'RBR'])
+Naive Bayes
+Accuracy: 0.765625
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9157 2240 3200
+frozenset(['JJR', 'RB'])
+Naive Bayes
+Accuracy: 0.73125
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9157 2240 3200
+frozenset(['JJR', 'RB'])
+Naive Bayes
+Accuracy: 0.7299107142857143
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9157 2240 3200
+frozenset(['JJR', 'RB'])
+Naive Bayes
+Accuracy: 0.7263392857142857
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9157 2240 3200
+frozenset(['JJR', 'RB'])
+Naive Bayes
+Accuracy: 0.7294642857142857
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9157 2240 3200
+frozenset(['JJR', 'RB'])
+Naive Bayes
+Accuracy: 0.7361607142857143
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9247 2240 3200
+frozenset(['RBS', 'JJR', 'RB'])
+Naive Bayes
+Accuracy: 0.7339285714285714
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9247 2240 3200
+frozenset(['RBS', 'JJR', 'RB'])
+Naive Bayes
+Accuracy: 0.7370535714285714
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9247 2240 3200
+frozenset(['RBS', 'JJR', 'RB'])
+Naive Bayes
+Accuracy: 0.7294642857142857
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9247 2240 3200
+frozenset(['RBS', 'JJR', 'RB'])
+Naive Bayes
+Accuracy: 0.7339285714285714
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9247 2240 3200
+frozenset(['RBS', 'JJR', 'RB'])
+Naive Bayes
+Accuracy: 0.7375
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9315 2240 3200
+frozenset(['JJR', 'RB', 'RBR'])
+Naive Bayes
+Accuracy: 0.7303571428571428
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9315 2240 3200
+frozenset(['JJR', 'RB', 'RBR'])
+Naive Bayes
+Accuracy: 0.7370535714285714
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9315 2240 3200
+frozenset(['JJR', 'RB', 'RBR'])
+Naive Bayes
+Accuracy: 0.7325892857142857
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9315 2240 3200
+frozenset(['JJR', 'RB', 'RBR'])
+Naive Bayes
+Accuracy: 0.7334821428571429
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9315 2240 3200
+frozenset(['JJR', 'RB', 'RBR'])
+Naive Bayes
+Accuracy: 0.7366071428571429
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9401 2240 3200
+frozenset(['RBS', 'JJR', 'RB', 'RBR'])
+Naive Bayes
+Accuracy: 0.7308035714285714
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9401 2240 3200
+frozenset(['RBS', 'JJR', 'RB', 'RBR'])
+Naive Bayes
+Accuracy: 0.7401785714285715
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9401 2240 3200
+frozenset(['RBS', 'JJR', 'RB', 'RBR'])
+Naive Bayes
+Accuracy: 0.7330357142857142
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9401 2240 3200
+frozenset(['RBS', 'JJR', 'RB', 'RBR'])
+Naive Bayes
+Accuracy: 0.7361607142857143
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9401 2240 3200
+frozenset(['RBS', 'JJR', 'RB', 'RBR'])
+Naive Bayes
+Accuracy: 0.7388392857142857
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+6458 2240 3200
+frozenset(['JJS', 'JJR'])
+Naive Bayes
+Accuracy: 0.7674107142857143
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+6458 2240 3200
+frozenset(['JJS', 'JJR'])
+Naive Bayes
+Accuracy: 0.7660714285714286
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+6458 2240 3200
+frozenset(['JJS', 'JJR'])
+Naive Bayes
+Accuracy: 0.7660714285714286
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+6458 2240 3200
+frozenset(['JJS', 'JJR'])
+Naive Bayes
+Accuracy: 0.7660714285714286
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+6458 2240 3200
+frozenset(['JJS', 'JJR'])
+Naive Bayes
+Accuracy: 0.7665178571428571
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+6672 2240 3200
+frozenset(['RBS', 'JJS', 'JJR'])
+Naive Bayes
+Accuracy: 0.7660714285714286
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+6672 2240 3200
+frozenset(['RBS', 'JJS', 'JJR'])
+Naive Bayes
+Accuracy: 0.7660714285714286
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+6672 2240 3200
+frozenset(['RBS', 'JJS', 'JJR'])
+Naive Bayes
+Accuracy: 0.76875
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+6672 2240 3200
+frozenset(['RBS', 'JJS', 'JJR'])
+Naive Bayes
+Accuracy: 0.7669642857142858
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+6672 2240 3200
+frozenset(['RBS', 'JJS', 'JJR'])
+Naive Bayes
+Accuracy: 0.7642857142857142
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+6857 2240 3200
+frozenset(['JJS', 'JJR', 'RBR'])
+Naive Bayes
+Accuracy: 0.7638392857142857
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+6857 2240 3200
+frozenset(['JJS', 'JJR', 'RBR'])
+Naive Bayes
+Accuracy: 0.7633928571428571
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+6857 2240 3200
+frozenset(['JJS', 'JJR', 'RBR'])
+Naive Bayes
+Accuracy: 0.7642857142857142
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+6857 2240 3200
+frozenset(['JJS', 'JJR', 'RBR'])
+Naive Bayes
+Accuracy: 0.7647321428571429
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+6857 2240 3200
+frozenset(['JJS', 'JJR', 'RBR'])
+Naive Bayes
+Accuracy: 0.7611607142857143
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+7067 2240 3200
+frozenset(['RBS', 'JJS', 'JJR', 'RBR'])
+Naive Bayes
+Accuracy: 0.7647321428571429
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+7067 2240 3200
+frozenset(['RBS', 'JJS', 'JJR', 'RBR'])
+Naive Bayes
+Accuracy: 0.7651785714285714
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+7067 2240 3200
+frozenset(['RBS', 'JJS', 'JJR', 'RBR'])
+Naive Bayes
+Accuracy: 0.7674107142857143
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+7067 2240 3200
+frozenset(['RBS', 'JJS', 'JJR', 'RBR'])
+Naive Bayes
+Accuracy: 0.76875
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+7067 2240 3200
+frozenset(['RBS', 'JJS', 'JJR', 'RBR'])
+Naive Bayes
+Accuracy: 0.7642857142857142
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9385 2240 3200
+frozenset(['JJS', 'JJR', 'RB'])
+Naive Bayes
+Accuracy: 0.7352678571428571
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9385 2240 3200
+frozenset(['JJS', 'JJR', 'RB'])
+Naive Bayes
+Accuracy: 0.7392857142857143
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9385 2240 3200
+frozenset(['JJS', 'JJR', 'RB'])
+Naive Bayes
+Accuracy: 0.7361607142857143
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9385 2240 3200
+frozenset(['JJS', 'JJR', 'RB'])
+Naive Bayes
+Accuracy: 0.7361607142857143
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9385 2240 3200
+frozenset(['JJS', 'JJR', 'RB'])
+Naive Bayes
+Accuracy: 0.7392857142857143
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9469 2240 3200
+frozenset(['RBS', 'JJS', 'JJR', 'RB'])
+Naive Bayes
+Accuracy: 0.7383928571428572
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9469 2240 3200
+frozenset(['RBS', 'JJS', 'JJR', 'RB'])
+Naive Bayes
+Accuracy: 0.7388392857142857
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9469 2240 3200
+frozenset(['RBS', 'JJS', 'JJR', 'RB'])
+Naive Bayes
+Accuracy: 0.7339285714285714
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9469 2240 3200
+frozenset(['RBS', 'JJS', 'JJR', 'RB'])
+Naive Bayes
+Accuracy: 0.7370535714285714
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9469 2240 3200
+frozenset(['RBS', 'JJS', 'JJR', 'RB'])
+Naive Bayes
+Accuracy: 0.7379464285714286
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9540 2240 3200
+frozenset(['JJS', 'JJR', 'RB', 'RBR'])
+Naive Bayes
+Accuracy: 0.7334821428571429
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9540 2240 3200
+frozenset(['JJS', 'JJR', 'RB', 'RBR'])
+Naive Bayes
+Accuracy: 0.7433035714285714
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9540 2240 3200
+frozenset(['JJS', 'JJR', 'RB', 'RBR'])
+Naive Bayes
+Accuracy: 0.7375
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9540 2240 3200
+frozenset(['JJS', 'JJR', 'RB', 'RBR'])
+Naive Bayes
+Accuracy: 0.7361607142857143
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9540 2240 3200
+frozenset(['JJS', 'JJR', 'RB', 'RBR'])
+Naive Bayes
+Accuracy: 0.7379464285714286
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9620 2240 3200
+frozenset(['RBS', 'JJS', 'JJR', 'RB', 'RBR'])
+Naive Bayes
+Accuracy: 0.7339285714285714
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9620 2240 3200
+frozenset(['RBS', 'JJS', 'JJR', 'RB', 'RBR'])
+Naive Bayes
+Accuracy: 0.7424107142857143
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9620 2240 3200
+frozenset(['RBS', 'JJS', 'JJR', 'RB', 'RBR'])
+Naive Bayes
+Accuracy: 0.7330357142857142
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9620 2240 3200
+frozenset(['RBS', 'JJS', 'JJR', 'RB', 'RBR'])
+Naive Bayes
+Accuracy: 0.7375
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+9620 2240 3200
+frozenset(['RBS', 'JJS', 'JJR', 'RB', 'RBR'])
+Naive Bayes
+Accuracy: 0.7383928571428572
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10548 2240 3200
+frozenset(['JJ'])
+Naive Bayes
+Accuracy: 0.753125
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10548 2240 3200
+frozenset(['JJ'])
+Naive Bayes
+Accuracy: 0.7446428571428572
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10548 2240 3200
+frozenset(['JJ'])
+Naive Bayes
+Accuracy: 0.7477678571428571
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10548 2240 3200
+frozenset(['JJ'])
+Naive Bayes
+Accuracy: 0.7549107142857143
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10548 2240 3200
+frozenset(['JJ'])
+Naive Bayes
+Accuracy: 0.7540178571428572
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10568 2240 3200
+frozenset(['RBS', 'JJ'])
+Naive Bayes
+Accuracy: 0.7508928571428571
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10568 2240 3200
+frozenset(['RBS', 'JJ'])
+Naive Bayes
+Accuracy: 0.7459821428571428
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10568 2240 3200
+frozenset(['RBS', 'JJ'])
+Naive Bayes
+Accuracy: 0.7477678571428571
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10568 2240 3200
+frozenset(['RBS', 'JJ'])
+Naive Bayes
+Accuracy: 0.7544642857142857
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10568 2240 3200
+frozenset(['RBS', 'JJ'])
+Naive Bayes
+Accuracy: 0.7504464285714286
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10613 2240 3200
+frozenset(['RBR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7513392857142858
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10613 2240 3200
+frozenset(['RBR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7428571428571429
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10613 2240 3200
+frozenset(['RBR', 'JJ'])
+Naive Bayes
+Accuracy: 0.746875
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10613 2240 3200
+frozenset(['RBR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7580357142857143
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10613 2240 3200
+frozenset(['RBR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7549107142857143
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10632 2240 3200
+frozenset(['RBS', 'RBR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7540178571428572
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10632 2240 3200
+frozenset(['RBS', 'RBR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7477678571428571
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10632 2240 3200
+frozenset(['RBS', 'RBR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7473214285714286
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10632 2240 3200
+frozenset(['RBS', 'RBR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7522321428571429
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10632 2240 3200
+frozenset(['RBS', 'RBR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7549107142857143
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10169 2240 3200
+frozenset(['RB', 'JJ'])
+Naive Bayes
+Accuracy: 0.765625
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10169 2240 3200
+frozenset(['RB', 'JJ'])
+Naive Bayes
+Accuracy: 0.7549107142857143
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10169 2240 3200
+frozenset(['RB', 'JJ'])
+Naive Bayes
+Accuracy: 0.7620535714285714
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10169 2240 3200
+frozenset(['RB', 'JJ'])
+Naive Bayes
+Accuracy: 0.7638392857142857
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10169 2240 3200
+frozenset(['RB', 'JJ'])
+Naive Bayes
+Accuracy: 0.7598214285714285
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10176 2240 3200
+frozenset(['RBS', 'RB', 'JJ'])
+Naive Bayes
+Accuracy: 0.7651785714285714
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10176 2240 3200
+frozenset(['RBS', 'RB', 'JJ'])
+Naive Bayes
+Accuracy: 0.7575892857142857
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10176 2240 3200
+frozenset(['RBS', 'RB', 'JJ'])
+Naive Bayes
+Accuracy: 0.7647321428571429
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10176 2240 3200
+frozenset(['RBS', 'RB', 'JJ'])
+Naive Bayes
+Accuracy: 0.7629464285714286
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10176 2240 3200
+frozenset(['RBS', 'RB', 'JJ'])
+Naive Bayes
+Accuracy: 0.7616071428571428
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10202 2240 3200
+frozenset(['RB', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.7633928571428571
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10202 2240 3200
+frozenset(['RB', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.759375
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10202 2240 3200
+frozenset(['RB', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.7620535714285714
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10202 2240 3200
+frozenset(['RB', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.7638392857142857
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10202 2240 3200
+frozenset(['RB', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.7598214285714285
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10208 2240 3200
+frozenset(['RBS', 'RB', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.7620535714285714
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10208 2240 3200
+frozenset(['RBS', 'RB', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.7611607142857143
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10208 2240 3200
+frozenset(['RBS', 'RB', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.7638392857142857
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10208 2240 3200
+frozenset(['RBS', 'RB', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.7638392857142857
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10208 2240 3200
+frozenset(['RBS', 'RB', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.759375
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10649 2240 3200
+frozenset(['JJS', 'JJ'])
+Naive Bayes
+Accuracy: 0.7535714285714286
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10649 2240 3200
+frozenset(['JJS', 'JJ'])
+Naive Bayes
+Accuracy: 0.7504464285714286
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10649 2240 3200
+frozenset(['JJS', 'JJ'])
+Naive Bayes
+Accuracy: 0.7504464285714286
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10649 2240 3200
+frozenset(['JJS', 'JJ'])
+Naive Bayes
+Accuracy: 0.7602678571428572
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10649 2240 3200
+frozenset(['JJS', 'JJ'])
+Naive Bayes
+Accuracy: 0.7549107142857143
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10669 2240 3200
+frozenset(['RBS', 'JJS', 'JJ'])
+Naive Bayes
+Accuracy: 0.753125
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10669 2240 3200
+frozenset(['RBS', 'JJS', 'JJ'])
+Naive Bayes
+Accuracy: 0.75
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10669 2240 3200
+frozenset(['RBS', 'JJS', 'JJ'])
+Naive Bayes
+Accuracy: 0.7491071428571429
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10669 2240 3200
+frozenset(['RBS', 'JJS', 'JJ'])
+Naive Bayes
+Accuracy: 0.7584821428571429
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10669 2240 3200
+frozenset(['RBS', 'JJS', 'JJ'])
+Naive Bayes
+Accuracy: 0.7558035714285715
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10713 2240 3200
+frozenset(['JJS', 'RBR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7504464285714286
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10713 2240 3200
+frozenset(['JJS', 'RBR', 'JJ'])
+Naive Bayes
+Accuracy: 0.75
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10713 2240 3200
+frozenset(['JJS', 'RBR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7508928571428571
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10713 2240 3200
+frozenset(['JJS', 'RBR', 'JJ'])
+Naive Bayes
+Accuracy: 0.75625
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10713 2240 3200
+frozenset(['JJS', 'RBR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7535714285714286
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10732 2240 3200
+frozenset(['RBS', 'JJS', 'RBR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7535714285714286
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10732 2240 3200
+frozenset(['RBS', 'JJS', 'RBR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7477678571428571
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10732 2240 3200
+frozenset(['RBS', 'JJS', 'RBR', 'JJ'])
+Naive Bayes
+Accuracy: 0.75
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10732 2240 3200
+frozenset(['RBS', 'JJS', 'RBR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7575892857142857
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10732 2240 3200
+frozenset(['RBS', 'JJS', 'RBR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7526785714285714
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10220 2240 3200
+frozenset(['JJS', 'RB', 'JJ'])
+Naive Bayes
+Accuracy: 0.7598214285714285
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10220 2240 3200
+frozenset(['JJS', 'RB', 'JJ'])
+Naive Bayes
+Accuracy: 0.7575892857142857
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10220 2240 3200
+frozenset(['JJS', 'RB', 'JJ'])
+Naive Bayes
+Accuracy: 0.7638392857142857
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10220 2240 3200
+frozenset(['JJS', 'RB', 'JJ'])
+Naive Bayes
+Accuracy: 0.7665178571428571
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10220 2240 3200
+frozenset(['JJS', 'RB', 'JJ'])
+Naive Bayes
+Accuracy: 0.7602678571428572
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10227 2240 3200
+frozenset(['RBS', 'JJS', 'RB', 'JJ'])
+Naive Bayes
+Accuracy: 0.7629464285714286
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10227 2240 3200
+frozenset(['RBS', 'JJS', 'RB', 'JJ'])
+Naive Bayes
+Accuracy: 0.7575892857142857
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10227 2240 3200
+frozenset(['RBS', 'JJS', 'RB', 'JJ'])
+Naive Bayes
+Accuracy: 0.7616071428571428
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10227 2240 3200
+frozenset(['RBS', 'JJS', 'RB', 'JJ'])
+Naive Bayes
+Accuracy: 0.7638392857142857
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10227 2240 3200
+frozenset(['RBS', 'JJS', 'RB', 'JJ'])
+Naive Bayes
+Accuracy: 0.7607142857142857
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10252 2240 3200
+frozenset(['JJS', 'RB', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.7647321428571429
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10252 2240 3200
+frozenset(['JJS', 'RB', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.7584821428571429
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10252 2240 3200
+frozenset(['JJS', 'RB', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.7611607142857143
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10252 2240 3200
+frozenset(['JJS', 'RB', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.7678571428571429
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10252 2240 3200
+frozenset(['JJS', 'RB', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.753125
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10258 2240 3200
+frozenset(['RBS', 'JJS', 'RB', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.7651785714285714
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10258 2240 3200
+frozenset(['RBS', 'JJS', 'RB', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.7571428571428571
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10258 2240 3200
+frozenset(['RBS', 'JJS', 'RB', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.7625
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10258 2240 3200
+frozenset(['RBS', 'JJS', 'RB', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.7674107142857143
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10258 2240 3200
+frozenset(['RBS', 'JJS', 'RB', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.7598214285714285
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10653 2240 3200
+frozenset(['JJR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7513392857142858
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10653 2240 3200
+frozenset(['JJR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7446428571428572
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10653 2240 3200
+frozenset(['JJR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7482142857142857
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10653 2240 3200
+frozenset(['JJR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7553571428571428
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10653 2240 3200
+frozenset(['JJR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7526785714285714
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10672 2240 3200
+frozenset(['RBS', 'JJR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7513392857142858
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10672 2240 3200
+frozenset(['RBS', 'JJR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7428571428571429
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10672 2240 3200
+frozenset(['RBS', 'JJR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7504464285714286
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10672 2240 3200
+frozenset(['RBS', 'JJR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7602678571428572
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10672 2240 3200
+frozenset(['RBS', 'JJR', 'JJ'])
+Naive Bayes
+Accuracy: 0.753125
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10704 2240 3200
+frozenset(['JJR', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.7522321428571429
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10704 2240 3200
+frozenset(['JJR', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.7482142857142857
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10704 2240 3200
+frozenset(['JJR', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.7495535714285714
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10704 2240 3200
+frozenset(['JJR', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.7526785714285714
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10704 2240 3200
+frozenset(['JJR', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.7535714285714286
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10722 2240 3200
+frozenset(['RBS', 'JJR', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.7517857142857143
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10722 2240 3200
+frozenset(['RBS', 'JJR', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.7491071428571429
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10722 2240 3200
+frozenset(['RBS', 'JJR', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.7482142857142857
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10722 2240 3200
+frozenset(['RBS', 'JJR', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.7535714285714286
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10722 2240 3200
+frozenset(['RBS', 'JJR', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.7517857142857143
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10229 2240 3200
+frozenset(['RB', 'JJR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7620535714285714
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10229 2240 3200
+frozenset(['RB', 'JJR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7580357142857143
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10229 2240 3200
+frozenset(['RB', 'JJR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7589285714285714
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10229 2240 3200
+frozenset(['RB', 'JJR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7665178571428571
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10229 2240 3200
+frozenset(['RB', 'JJR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7571428571428571
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10235 2240 3200
+frozenset(['RB', 'RBS', 'JJR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7629464285714286
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10235 2240 3200
+frozenset(['RB', 'RBS', 'JJR', 'JJ'])
+Naive Bayes
+Accuracy: 0.759375
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10235 2240 3200
+frozenset(['RB', 'RBS', 'JJR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7602678571428572
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10235 2240 3200
+frozenset(['RB', 'RBS', 'JJR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7638392857142857
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10235 2240 3200
+frozenset(['RB', 'RBS', 'JJR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7602678571428572
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10252 2240 3200
+frozenset(['RB', 'JJR', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.7571428571428571
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10252 2240 3200
+frozenset(['RB', 'JJR', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.7611607142857143
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10252 2240 3200
+frozenset(['RB', 'JJR', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.7616071428571428
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10252 2240 3200
+frozenset(['RB', 'JJR', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.7691964285714286
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10252 2240 3200
+frozenset(['RB', 'JJR', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.7580357142857143
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10257 2240 3200
+frozenset(['RB', 'RBS', 'JJR', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.7625
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10257 2240 3200
+frozenset(['RB', 'RBS', 'JJR', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.7580357142857143
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10257 2240 3200
+frozenset(['RB', 'RBS', 'JJR', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.7616071428571428
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10257 2240 3200
+frozenset(['RB', 'RBS', 'JJR', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.765625
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10257 2240 3200
+frozenset(['RB', 'RBS', 'JJR', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.759375
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10742 2240 3200
+frozenset(['JJS', 'JJR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7513392857142858
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10742 2240 3200
+frozenset(['JJS', 'JJR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7508928571428571
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10742 2240 3200
+frozenset(['JJS', 'JJR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7459821428571428
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10742 2240 3200
+frozenset(['JJS', 'JJR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7580357142857143
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10742 2240 3200
+frozenset(['JJS', 'JJR', 'JJ'])
+Naive Bayes
+Accuracy: 0.753125
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10761 2240 3200
+frozenset(['RBS', 'JJS', 'JJR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7540178571428572
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10761 2240 3200
+frozenset(['RBS', 'JJS', 'JJR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7477678571428571
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10761 2240 3200
+frozenset(['RBS', 'JJS', 'JJR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7517857142857143
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10761 2240 3200
+frozenset(['RBS', 'JJS', 'JJR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7616071428571428
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10761 2240 3200
+frozenset(['RBS', 'JJS', 'JJR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7535714285714286
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10792 2240 3200
+frozenset(['JJS', 'JJR', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.7513392857142858
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10792 2240 3200
+frozenset(['JJS', 'JJR', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.7495535714285714
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10792 2240 3200
+frozenset(['JJS', 'JJR', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.7473214285714286
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10792 2240 3200
+frozenset(['JJS', 'JJR', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.7558035714285715
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10792 2240 3200
+frozenset(['JJS', 'JJR', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.7549107142857143
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10810 2240 3200
+frozenset(['RBS', 'JJS', 'JJR', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.7535714285714286
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10810 2240 3200
+frozenset(['RBS', 'JJS', 'JJR', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.7495535714285714
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10810 2240 3200
+frozenset(['RBS', 'JJS', 'JJR', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.7504464285714286
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10810 2240 3200
+frozenset(['RBS', 'JJS', 'JJR', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.7575892857142857
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10810 2240 3200
+frozenset(['RBS', 'JJS', 'JJR', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.7517857142857143
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10274 2240 3200
+frozenset(['RB', 'JJS', 'JJR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7611607142857143
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10274 2240 3200
+frozenset(['RB', 'JJS', 'JJR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7589285714285714
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10274 2240 3200
+frozenset(['RB', 'JJS', 'JJR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7633928571428571
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10274 2240 3200
+frozenset(['RB', 'JJS', 'JJR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7678571428571429
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10274 2240 3200
+frozenset(['RB', 'JJS', 'JJR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7589285714285714
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10280 2240 3200
+frozenset(['RBS', 'RB', 'JJS', 'JJR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7647321428571429
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10280 2240 3200
+frozenset(['RBS', 'RB', 'JJS', 'JJR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7629464285714286
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10280 2240 3200
+frozenset(['RBS', 'RB', 'JJS', 'JJR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7633928571428571
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10280 2240 3200
+frozenset(['RBS', 'RB', 'JJS', 'JJR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7660714285714286
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10280 2240 3200
+frozenset(['RBS', 'RB', 'JJS', 'JJR', 'JJ'])
+Naive Bayes
+Accuracy: 0.7616071428571428
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10296 2240 3200
+frozenset(['RB', 'JJS', 'JJR', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.7575892857142857
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10296 2240 3200
+frozenset(['RB', 'JJS', 'JJR', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.7584821428571429
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10296 2240 3200
+frozenset(['RB', 'JJS', 'JJR', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.7620535714285714
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10296 2240 3200
+frozenset(['RB', 'JJS', 'JJR', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.7660714285714286
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10296 2240 3200
+frozenset(['RB', 'JJS', 'JJR', 'JJ', 'RBR'])
+Naive Bayes
+Accuracy: 0.75625
+slt 0 ungs 0 nw -1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10301 2240 3200
+frozenset(['JJ', 'JJS', 'RBS', 'JJR', 'RBR', 'RB'])
+Naive Bayes
+Accuracy: 0.7602678571428572
+slt 0 ungs 0 nw 0
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10301 2240 3200
+frozenset(['JJ', 'JJS', 'RBS', 'JJR', 'RBR', 'RB'])
+Naive Bayes
+Accuracy: 0.7584821428571429
+slt 0 ungs 0 nw 1
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10301 2240 3200
+frozenset(['JJ', 'JJS', 'RBS', 'JJR', 'RBR', 'RB'])
+Naive Bayes
+Accuracy: 0.7633928571428571
+slt 0 ungs 0 nw 2
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10301 2240 3200
+frozenset(['JJ', 'JJS', 'RBS', 'JJR', 'RBR', 'RB'])
+Naive Bayes
+Accuracy: 0.7642857142857142
+slt 0 ungs 0 nw 3
+SPLITTING DATA
+
+AUGMENTING DATA
+
+10301 2240 3200
+frozenset(['JJ', 'JJS', 'RBS', 'JJR', 'RBR', 'RB'])
+Naive Bayes
+Accuracy: 0.759375
+slt 0 ungs 0 nw -1
+::::::::::done::::::::::
+max acc:  [0.7705357142857143, 'Naive Bayes', {'stop_words': None, 'ngram_min': 1, 'ngram_max': 1, 'max_df': 0.95, 'min_df': 3, 'max_features': 50000}, frozenset(['JJS']), 'slt: 0', 'ungs: 0', 'nw: 1']

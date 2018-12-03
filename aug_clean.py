@@ -1,5 +1,6 @@
 import math, os
 import nltk
+import sys
 
 from nltk import word_tokenize
 
@@ -22,14 +23,14 @@ import gensim
 
 class MoviesReviewClassifier:
 
-    def __init__(self, use_word2vec):
+    def __init__(self, use_word2vec, use_imdb):
         self.POS_REVIEW_FILE_PATH = os.path.join('rt-polaritydata', 'rt-polarity.pos')
         self.NEG_REVIEW_FILE_PATH = os.path.join('rt-polaritydata', 'rt-polarity.neg')
         self.pos_corpus = []
         self.neg_corpus = []
         self.test_corpus = []
         self.train_vs_test_cutoff = 0.7
-        self.train_vs_valid_cutoff = 0.7
+        self.train_vs_valid_cutoff = 0.95
         self.use_word2vec = use_word2vec
 
         self.pos_aug_corpus = []
@@ -41,6 +42,12 @@ class MoviesReviewClassifier:
         self.mis_classification = []
         if use_word2vec:
             self.word2vec_model = gensim.models.KeyedVectors.load_word2vec_format('GoogleNews-vectors-negative300.bin.gz', binary=True)
+
+        if use_imdb:
+            self.read_data_imdb()
+        else:
+            self.read_data()
+
         print 'Movies review classifier ready for work!!!'
 
     def read_data(self):
@@ -158,6 +165,35 @@ class MoviesReviewClassifier:
 
         return tune_dict
 
+    def fine_tune_only_pos_tags(self):
+        params_lst = self.get_best_params()
+        clr = MultinomialNB()
+        clr_key = "Naive Bayes"
+        vectorizer = None
+
+        params_for_augm_dict = self.get_params_tune_augmentation_model()
+        pos_to_consider = ['JJ', 'JJR', 'JJS', 'RB', 'RBR', 'RBS'] 
+        pos_combinations = self.combinations(pos_to_consider)
+        pos_results = []
+
+        for pos_combination in pos_combinations:
+            X_train, X_valid, y_train, y_valid, X_test, y_test = self.split_data(pos_combination, 30, 0, 1)
+            print len(X_train), len(X_valid), len(X_test)
+            train_vecs, valid_vecs, vecter = self.get_vectors_tfidf_vectorizer(params_lst[0], X_train, X_valid)
+            vectorizer = vecter
+            clr.fit(train_vecs, y_train)
+            y_predicted = clr.predict(valid_vecs)
+            acc = accuracy_score(y_valid, y_predicted)
+            pos_results.append((acc, pos_combination))
+            print pos_combination
+            print clr_key
+            print 'Accuracy:', accuracy_score(y_valid, y_predicted)        
+        # sort the pos tags sets based on  accuracies
+        pos_results.sort(key=lambda x: x[0])
+        print(pos_results)
+
+
+
     def fine_tune_params_on_selected_model_and_vectorizer(self):
         params_lst = self.get_best_params() 
         clr = MultinomialNB()
@@ -184,6 +220,7 @@ class MoviesReviewClassifier:
         slt_lst = [0] # BEST PERFORMING  == 30[10, 20, 30, 0] # if slt is not 0, 
         # then values of ungs DO NOT matter(check line 382 in augment_sentence() ), 
         
+        # takex i words before and i words after
         ungs_lst = [0] # [0, 1, 2, 3] # no n-grams for words; BEST PERFORMING == [2]
         nw_lst = [0]#[0, 1, 2, 3, -1] # using nth word;  BEST PERFORMING == [1]
 
@@ -211,59 +248,36 @@ class MoviesReviewClassifier:
         print '::::::::::done::::::::::'
         print 'max acc: ', max_vals['maxval']
 
-    def run_final_setup(self):
-        params_lst = self.get_best_params()
+    def run_final_setup(self, slt_value, ung_value, nw_value):
+        params = self.get_best_params()[0]
         clr = MultinomialNB()
         clr_key = 'Naive Bayes'
         vectorizer = None
 
-        split_train_vs_test_cutoffs = [0.5]
-        split_train_vs_valid_cutoffs = [0.7]
-
         # generate all combinations of pos considered
-        pos_to_consider = []#['JJ', 'JJS', 'RBS'] #['JJ', 'JJR', 'JJS', 'RB', 'RBR', 'RBS'] #
-        pos_combinations = self.combinations(pos_to_consider)
+        pos_combination = ['RBS', 'JJS', 'JJR', 'RBR']#['JJ', 'JJS', 'RBS'] #['JJ', 'JJR', 'JJS', 'RB', 'RBR', 'RBS'] #
 
 
-        X_train, X_valid, y_train, y_valid, X_test, y_test = [], [], [], [], [], []
-        max_vals = {'maxval': [0.2]}
-        results_combinations = {}
-        for params in params_lst:
-            for i in split_train_vs_test_cutoffs:
-                self.train_vs_test_cutoff = i
-                for k in split_train_vs_valid_cutoffs:
-                    for pos_combination in pos_combinations:
-                        self.train_vs_valid_cutoff = k
-                        X_train, X_valid, y_train, y_valid, X_test, y_test = self.split_data(pos_combination, 0, 0, 0)
-                        print len(X_train), len(X_valid), len(X_test)
-                        train_vecs, valid_vecs, vecter = self.get_vectors_tfidf_vectorizer(params, X_train, X_valid)
-                        vectorizer = vecter
-                        clr.fit(train_vecs, y_train)
-                        y_predicted = clr.predict(valid_vecs)
-                        acc = accuracy_score(y_valid, y_predicted)
-                        if acc > max_vals['maxval'][0]:
-                            max_vals['maxval'] = [acc, clr_key, i, k, params, pos_combination]
 
-                        results_combinations[(i, k, pos_combination)] = acc
-                        print pos_combination
-                        print clr_key
-                        print 'Accuracy:', accuracy_score(y_valid, y_predicted)
-
+        X_train, X_valid, y_train, y_valid, X_test, y_test = \
+            self.split_data(pos_combination, slt_value, ung_value, nw_value)
+        print len(X_train), len(X_valid), len(X_test)
+        train_vecs, valid_vecs, vecter = self.get_vectors_tfidf_vectorizer(params, X_train, X_valid)
+        vectorizer = vecter
+        clr.fit(train_vecs, y_train)
+        
         print ':::::performance on testing sample:::::'
         X_test_tr = vectorizer.transform(X_test)
         y_predicted_test = clr.predict(X_test_tr)
         print 'Accuracy:', accuracy_score(y_test, y_predicted_test)
         print confusion_matrix(y_test, y_predicted_test)
-        print max_vals['maxval']
-        # :::::preformance on testing sample:::::
-        # Accuracy: 0.78875
-        # [[1309  291]
-        # [ 385 1215]]
 
         self.mis_classification = []
         for i in range(0, len(y_predicted_test)):
             if y_predicted_test[i] != y_test[i]:
                 self.mis_classification.append([y_predicted_test[i], y_test[i], X_test[i]])
+
+
 
     def word2vec_implementation(self, sentence, word_index):
         # generate the top 5 positively related words
@@ -345,35 +359,37 @@ class MoviesReviewClassifier:
                         
 
 
-
-                if syno_lst != []:
-                    if corpus_polarity == 'pos':
-                        if nth_word < len(syno_lst):
-                            aug_pos_sent.append(syno_lst[nth_word].encode('utf-8'))
+                try:
+                    if syno_lst != []:
+                        if corpus_polarity == 'pos':
+                            if nth_word < len(syno_lst):
+                                aug_pos_sent.append(syno_lst[nth_word].encode('utf-8'))
+                            else:
+                                aug_pos_sent.append(syno_lst[0].encode('utf-8'))
+                            aug_pos_sent_at_idx.append(i)
                         else:
-                            aug_pos_sent.append(syno_lst[0].encode('utf-8'))
-                        aug_pos_sent_at_idx.append(i)
-                    else:
-                        if nth_word < len(syno_lst):
-                            aug_neg_sent.append(syno_lst[nth_word].encode('utf-8'))
+                            if nth_word < len(syno_lst):
+                                aug_neg_sent.append(syno_lst[nth_word].encode('utf-8'))
+                            else:
+                                aug_neg_sent.append(syno_lst[0].encode('utf-8'))
+                            aug_neg_sent_at_idx.append(i)
+                        pos_flag = True
+                    if anto_lst != []:
+                        if corpus_polarity == 'pos':
+                            if nth_word < len(anto_lst):
+                                aug_neg_sent.append(anto_lst[nth_word].encode('utf-8'))
+                            else:
+                                aug_neg_sent.append(anto_lst[0].encode('utf-8'))
+                            aug_neg_sent_at_idx.append(i)
                         else:
-                            aug_neg_sent.append(syno_lst[0].encode('utf-8'))
-                        aug_neg_sent_at_idx.append(i)
-                    pos_flag = True
-                if anto_lst != []:
-                    if corpus_polarity == 'pos':
-                        if nth_word < len(anto_lst):
-                            aug_neg_sent.append(anto_lst[nth_word].encode('utf-8'))
-                        else:
-                            aug_neg_sent.append(anto_lst[0].encode('utf-8'))
-                        aug_neg_sent_at_idx.append(i)
-                    else:
-                        if nth_word < len(anto_lst):
-                            aug_pos_sent.append(anto_lst[nth_word].encode('utf-8'))
-                        else:
-                            aug_pos_sent.append(anto_lst[0].encode('utf-8'))
-                        aug_pos_sent_at_idx.append(i)
-                    neg_flag = True
+                            if nth_word < len(anto_lst):
+                                aug_pos_sent.append(anto_lst[nth_word].encode('utf-8'))
+                            else:
+                                aug_pos_sent.append(anto_lst[0].encode('utf-8'))
+                            aug_pos_sent_at_idx.append(i)
+                        neg_flag = True
+                except Exception as e:
+                    print e
 
                     
             else:
@@ -414,13 +430,48 @@ class MoviesReviewClassifier:
         # self.read_data_imdb()
 
         # phase 2: find best performing params for the augmentation setup
-        self.fine_tune_params_on_selected_model_and_vectorizer()
+        #self.fine_tune_params_on_selected_model_and_vectorizer()
 
         # phase 3: run final train, with the optimal params and samples split ratios, as obtained in phase 3 & 4
-        # self.run_final_setup()
+        self.run_final_setup()
 
 
 if __name__ == "__main__":
-    mrc = MoviesReviewClassifier(use_word2vec=False)
-    print 'start classifying:'
-    mrc.main()
+    # 8 total combinations to run from the previous hyperparameters
+    if len(sys.argv) < 2:
+        mrc = MoviesReviewClassifier(use_word2vec=False, use_imdb=True)
+        mrc.fine_tune_only_pos_tags()
+        exit
+
+    choice = int(sys.argv[1])
+    if choice == 1:      
+        mrc = MoviesReviewClassifier(use_word2vec=False, use_imdb=False)
+        # 30 0 1
+        # 0 2 1
+        mrc.run_final_setup(30, 0, 1)
+    elif choice == 2:
+        mrc = MoviesReviewClassifier(use_word2vec=False, use_imdb=False)
+        mrc.run_final_setup(0, 2, 1)
+    elif choice == 3:
+        mrc = MoviesReviewClassifier(use_word2vec=True, use_imdb=False)
+        mrc.run_final_setup(30, 0, 1)
+    elif choice == 4:
+        mrc = MoviesReviewClassifier(use_word2vec=True, use_imdb=False)
+        mrc.run_final_setup(0, 2, 1)
+    elif choice == 5:
+        mrc = MoviesReviewClassifier(use_word2vec=False, use_imdb=True)
+        mrc.run_final_setup(30, 0, 1)
+    elif choice == 6:
+        mrc = MoviesReviewClassifier(use_word2vec=False, use_imdb=True)
+        mrc.run_final_setup(0, 2, 1)
+    elif choice == 7:
+        mrc = MoviesReviewClassifier(use_word2vec=True, use_imdb=True)
+        mrc.run_final_setup(30, 0, 1)
+    elif choice == 8:
+        mrc = MoviesReviewClassifier(use_word2vec=True, use_imdb=True)
+        mrc.run_final_setup(0, 2, 1)
+    else:
+        print "choose one option of parameters/dataset combinations to run in 1-8"
+    
+    
+    

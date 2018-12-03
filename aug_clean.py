@@ -95,6 +95,7 @@ class MoviesReviewClassifier:
         print 'SPLITTING DATA\n'
 
         full_corpus = self.pos_corpus + self.neg_corpus
+        print "size of the full corpus: {}".format(len(full_corpus))
         y_all = ['pos']*len(self.pos_corpus) + ['neg']*len(self.neg_corpus)
 
         pos_train_vs_test_cutoff = int(math.floor(len(self.pos_corpus)*self.train_vs_test_cutoff))
@@ -113,6 +114,9 @@ class MoviesReviewClassifier:
         if len(pos_combination) != 0:
             self.pos_aug_corpus, self.neg_aug_corpus = [], []
             self.augment_corpus(pos_combination, slt, ungs, nw) # augment based only on the training set 
+        
+
+        print "size of the augmented corpus: {}".format(len(self.pos_aug_corpus) + len(self.neg_aug_corpus))
 
         X_train_pos_aug = X_train_pos[:pos_train_vs_valid_cutoff] + self.pos_aug_corpus
         X_train_neg_aug = X_train_neg[:neg_train_vs_valid_cutoff] + self.neg_aug_corpus
@@ -255,8 +259,7 @@ class MoviesReviewClassifier:
         vectorizer = None
 
         # generate all combinations of pos considered
-        pos_combination = ['RBS', 'JJS', 'JJR', 'RBR']#['JJ', 'JJS', 'RBS'] #['JJ', 'JJR', 'JJS', 'RB', 'RBR', 'RBS'] #
-
+        pos_combination = ['RBS', 'JJS', 'JJR', 'JJ']#['JJ', 'JJS', 'RBS'] #['JJ', 'JJR', 'JJS', 'RB', 'RBR', 'RBS'] #
 
 
         X_train, X_valid, y_train, y_valid, X_test, y_test = \
@@ -266,9 +269,9 @@ class MoviesReviewClassifier:
         vectorizer = vecter
         clr.fit(train_vecs, y_train)
         
-        print ':::::performance on testing sample:::::'
+        print ':::::performance on test sample:::::'
         X_test_tr = vectorizer.transform(X_test)
-        y_predicted_test = clr.predict(X_test_tr)
+        y_predicted_test = clr.predict(X_valid_tr)
         print 'Accuracy:', accuracy_score(y_test, y_predicted_test)
         print confusion_matrix(y_test, y_predicted_test)
 
@@ -276,8 +279,6 @@ class MoviesReviewClassifier:
         for i in range(0, len(y_predicted_test)):
             if y_predicted_test[i] != y_test[i]:
                 self.mis_classification.append([y_predicted_test[i], y_test[i], X_test[i]])
-
-
 
     def word2vec_implementation(self, sentence, word_index):
         # generate the top 5 positively related words
